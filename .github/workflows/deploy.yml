@@ -31,24 +31,21 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-          cache-dependency-path: nextjs/package-lock.json
 
       - name: Install dependencies
-        working-directory: nextjs
         run: npm ci
 
       - name: Build static site
-        working-directory: nextjs
         run: npm run build
-        # Outputs static files to nextjs/out/
+        # Outputs static files to /out
 
       - name: Add .nojekyll (prevents Jekyll processing)
-        run: touch nextjs/out/.nojekyll
+        run: touch out/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: nextjs/out   # the folder that becomes the website root
+          path: out   # the folder that becomes the website root
 
   deploy:
     name: Deploy to GitHub Pages
