@@ -10,15 +10,15 @@ import { Badge } from "@/components/ui/badge";
 // ✏️  Edit everything in this section to personalise your site.
 
 const PROFILE = {
-  name: "Your Name",
-  role: "Software Developer",
+  name: "Yevhenii (Eugene) Tkachenko",
+  role: "Staff Software Developer",
   bio: "I build thoughtful digital experiences that live at the intersection of design and engineering. I care deeply about simplicity, craft, and the small details that make technology feel human.",
-  location: "Your City, Country 🌍",
+  location: "Waterloo, Canada 🇨🇦",
   social: {
     github: "https://github.com/jekatka",
-    linkedin: "#",
-    email: "mailto:hello@example.com",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/yev-tka/",
+    email: "mailto:jekatka@gmail.com",
+    twitter: "https://x.com/jekatka_",
   },
 };
 
@@ -70,37 +70,46 @@ const PROJECTS: Project[] = [
   },
 ];
 
-interface Article {
-  title: string;
-  date: string;
+interface Experience {
+  company: string;
+  domain: string;   // used to fetch logo via clearbit
   url: string;
+  role: string;
+  period: string;
+  description: string;
+  tags: string[];
 }
 
-const WRITINGS: Article[] = [
+const EXPERIENCE: Experience[] = [
   {
-    title: "On Building Software That Lasts",
-    date: "Feb 10, 2026",
-    url: "#",
+    company: "Company One",
+    domain: "google.com",        // ✏️ replace with actual domain
+    url: "https://example.com",  // ✏️ replace with actual URL
+    role: "Staff Software Developer",
+    period: "2023 — Present",
+    description:
+      "Leading architecture decisions for a high-traffic platform serving millions of users. Mentoring a team of 8 engineers, driving adoption of TypeScript across the org, and shipping features that meaningfully improved core product metrics.",
+    tags: ["React", "TypeScript", "Node.js", "AWS", "PostgreSQL"],
   },
   {
-    title: "Why I Switched to TypeScript (And Never Looked Back)",
-    date: "Nov 3, 2025",
-    url: "#",
+    company: "Company Two",
+    domain: "github.com",        // ✏️ replace with actual domain
+    url: "https://example.com",
+    role: "Senior Software Developer",
+    period: "2020 — 2023",
+    description:
+      "Built and maintained a suite of internal developer tools that reduced deployment time by 60%. Collaborated closely with design and product to deliver a redesigned onboarding flow that improved conversion by 30%.",
+    tags: ["Vue.js", "Python", "Docker", "Redis", "GraphQL"],
   },
   {
-    title: "The Art of Building Minimal UIs",
-    date: "Aug 15, 2025",
-    url: "#",
-  },
-  {
-    title: "What I Learned Shipping My First Open Source Library",
-    date: "May 22, 2025",
-    url: "#",
-  },
-  {
-    title: "Getting Started with the Next.js App Router",
-    date: "Jan 8, 2025",
-    url: "#",
+    company: "Company Three",
+    domain: "vercel.com",        // ✏️ replace with actual domain
+    url: "https://example.com",
+    role: "Software Developer",
+    period: "2018 — 2020",
+    description:
+      "Developed customer-facing features for a SaaS product with 50k+ monthly active users. Worked in a fast-paced startup environment, wearing many hats — from writing APIs to shipping pixel-perfect UIs.",
+    tags: ["React", "Ruby on Rails", "MySQL", "Heroku"],
   },
 ];
 
@@ -115,11 +124,11 @@ const NOW = [
   },
   {
     prefix: "Learning",
-    text: "more about distributed systems, WebAssembly, and AI-assisted development workflows.",
+    text: "SwiftUI 🍎 (yes, a web dev learning Apple stuff — plot twist), Supabase 🐘, and how to make AI do my job so I can take longer coffee breaks ☕🤖.",
   },
   {
     prefix: "Looking forward",
-    text: "to contributing to open source and connecting with the developer community.",
+    text: "to building my first iOS app and kicking off my indie dev journey 📱🚀 — one SwiftUI view at a time.",
   },
 ];
 
@@ -181,7 +190,7 @@ function AnimatedSection({
   );
 }
 
-const NAV_ITEMS = ["Projects", "Writing", "Now"] as const;
+const NAV_ITEMS = ["Projects", "Experience", "Now"] as const;
 type NavItem = (typeof NAV_ITEMS)[number];
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
@@ -379,10 +388,10 @@ export default function Home() {
             </motion.div>
           )}
 
-          {/* Writing */}
-          {activeNav === "Writing" && (
+          {/* Experience */}
+          {activeNav === "Experience" && (
             <motion.div
-              key="writing"
+              key="experience"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -393,30 +402,93 @@ export default function Home() {
                   variants={fadeUp}
                   className="font-display text-lg font-semibold mb-8 text-[#09090B]"
                 >
-                  Writing
+                  Where I&apos;ve worked
                 </motion.h2>
 
-                <div className="flex flex-col">
-                  {WRITINGS.map((article, i) => (
-                    <motion.a
-                      key={article.title}
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                <div className="flex flex-col gap-0">
+                  {EXPERIENCE.map((job, i) => (
+                    <motion.div
+                      key={job.company}
                       variants={fadeUp}
-                      className={`group flex items-baseline justify-between py-4 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 rounded ${
-                        i < WRITINGS.length - 1
+                      className={`flex gap-4 py-7 ${
+                        i < EXPERIENCE.length - 1
                           ? "border-b border-zinc-100"
                           : ""
                       }`}
                     >
-                      <span className="text-sm text-[#09090B] group-hover:text-[#2563EB] transition-colors duration-200 pr-6 leading-snug">
-                        {article.title}
-                      </span>
-                      <span className="text-[11px] text-zinc-400 flex-shrink-0 tabular-nums">
-                        {article.date}
-                      </span>
-                    </motion.a>
+                      {/* Company logo */}
+                      <div className="flex-shrink-0 mt-0.5">
+                        <a
+                          href={job.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-10 h-10 rounded-xl border border-zinc-200 overflow-hidden bg-white cursor-pointer hover:border-zinc-300 transition-colors duration-200"
+                          tabIndex={-1}
+                        >
+                          <img
+                            src={`https://logo.clearbit.com/${job.domain}`}
+                            alt={`${job.company} logo`}
+                            width={40}
+                            height={40}
+                            className="w-full h-full object-contain p-1"
+                            onError={(e) => {
+                              // Fallback: show coloured initial
+                              const el = e.currentTarget;
+                              el.style.display = "none";
+                              const parent = el.parentElement!;
+                              parent.style.display = "flex";
+                              parent.style.alignItems = "center";
+                              parent.style.justifyContent = "center";
+                              parent.style.background = "#f4f4f5";
+                              parent.style.fontSize = "14px";
+                              parent.style.fontWeight = "600";
+                              parent.style.color = "#18181b";
+                              parent.textContent = job.company[0];
+                            }}
+                          />
+                        </a>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-3 mb-0.5">
+                          <a
+                            href={job.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/link inline-flex items-center gap-1 cursor-pointer"
+                          >
+                            <span className="font-display font-semibold text-sm text-[#09090B] group-hover/link:text-[#2563EB] transition-colors duration-200">
+                              {job.company}
+                            </span>
+                            <ArrowUpRight className="w-3 h-3 text-zinc-300 group-hover/link:text-[#2563EB] transition-colors duration-200" />
+                          </a>
+                          <span className="text-[11px] text-zinc-400 flex-shrink-0 tabular-nums pt-0.5">
+                            {job.period}
+                          </span>
+                        </div>
+
+                        <p className="text-[11px] font-medium text-zinc-400 uppercase tracking-wide mb-3">
+                          {job.role}
+                        </p>
+
+                        <p className="text-xs text-zinc-500 leading-relaxed mb-4">
+                          {job.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-1.5">
+                          {job.tags.map((tag) => (
+                            <Badge
+                              key={tag}
+                              variant="secondary"
+                              className="text-[10px] px-2 py-0.5 bg-zinc-100 text-zinc-500 rounded-md font-normal"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
                   ))}
                 </div>
               </AnimatedSection>
@@ -480,7 +552,7 @@ export default function Home() {
                 {PROFILE.name}
               </p>
               <p className="text-xs text-zinc-400">
-                © {new Date().getFullYear()} — Built with Next.js & Tailwind
+                © {new Date().getFullYear()} — Built with ❤️ from 🇨🇦🇺🇦
               </p>
             </div>
 
