@@ -94,24 +94,25 @@ const EXPERIENCE: Experience[] = [
     tags: ["Golang", "TypeScript", "k8s", "AWS", "PostgreSQL", "Redis", "NATS"],
   },
   {
-    company: "Company Two",
-    domain: "github.com",        // ✏️ replace with actual domain
-    url: "https://example.com",
+    company: "TextNow",
+    domain: "textnow.com",        // ✏️ replace with actual domain
+    url: "https://www.textnow.com",
     role: "Senior Software Developer",
-    period: "2020 — 2023",
+    period: "2021 — 2023",
     description:
-      "Built and maintained a suite of internal developer tools that reduced deployment time by 60%. Collaborated closely with design and product to deliver a redesigned onboarding flow that improved conversion by 30%.",
-    tags: ["Vue.js", "Python", "Docker", "Redis", "GraphQL"],
+      "Built and maintained a suite of internal developer tools that reduced deployment time by 60%. Collaborated closely with VoIP engineering team to build a new VoIP service that allows users to make and receive calls over the internet.",
+    tags: ["Go", "PHP", "k8s", "AWS", "PostgreSQL", "microservices"],
   },
   {
-    company: "Company Three",
-    domain: "vercel.com",        // ✏️ replace with actual domain
-    url: "https://example.com",
-    role: "Software Developer",
-    period: "2018 — 2020",
+    company: "PlutoTV",
+    domain: "pluto.tv",        // ✏️ replace with actual domain
+    logoPath: "/logos/plutotv-logo.png",
+    url: "https://pluto.tv",
+    role: "Senior Software Developer",
+    period: "2018 — 2021",
     description:
-      "Developed customer-facing features for a SaaS product with 50k+ monthly active users. Worked in a fast-paced startup environment, wearing many hats — from writing APIs to shipping pixel-perfect UIs.",
-    tags: ["React", "Ruby on Rails", "MySQL", "Heroku"],
+      "Part of the core API team, designing and scaling dozens of microservices powering a platform with 32M+ monthly active users. Drove significant improvements in code quality, reliability, and system performance across the backend.",
+    tags: ["Go", "TypeScript", "k8s", "AWS", "PostgreSQL", "MongoDB"],
   },
 ];
 
