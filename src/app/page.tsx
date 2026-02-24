@@ -72,7 +72,8 @@ const PROJECTS: Project[] = [
 
 interface Experience {
   company: string;
-  domain: string;   // used to fetch logo via clearbit
+  domain: string;      // used to fetch logo via clearbit (fallback)
+  logoPath?: string;   // local file in /public/logos/ — takes priority over clearbit
   url: string;
   role: string;
   period: string;
@@ -82,14 +83,15 @@ interface Experience {
 
 const EXPERIENCE: Experience[] = [
   {
-    company: "Company One",
-    domain: "google.com",        // ✏️ replace with actual domain
-    url: "https://example.com",  // ✏️ replace with actual URL
+    company: "Frontrow",
+    domain: "frontro.com",
+    logoPath: "/logos/frontrow-logo.png",
+    url: "https://frontro.com",
     role: "Staff Software Developer",
     period: "2023 — Present",
     description:
-      "Leading architecture decisions for a high-traffic platform serving millions of users. Mentoring a team of 8 engineers, driving adoption of TypeScript across the org, and shipping features that meaningfully improved core product metrics.",
-    tags: ["React", "TypeScript", "Node.js", "AWS", "PostgreSQL"],
+      "Leading architecture decisions for a high-traffic platform serving 8 millions of users. Mentoring a team of 4 engineers, and shipping features that meaningfully improved core product metrics.",
+    tags: ["Golang", "TypeScript", "k8s", "AWS", "PostgreSQL", "Redis", "NATS"],
   },
   {
     company: "Company Two",
@@ -426,7 +428,10 @@ export default function Home() {
                           tabIndex={-1}
                         >
                           <img
-                            src={`https://logo.clearbit.com/${job.domain}`}
+                            src={
+                              job.logoPath ??
+                              `https://logo.clearbit.com/${job.domain}`
+                            }
                             alt={`${job.company} logo`}
                             width={40}
                             height={40}
