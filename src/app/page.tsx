@@ -95,7 +95,8 @@ const EXPERIENCE: Experience[] = [
   },
   {
     company: "TextNow",
-    domain: "textnow.com",        // ✏️ replace with actual domain
+    domain: "textnow.com",
+    logoPath: "/logos/textnow-logo.jpeg",
     url: "https://www.textnow.com",
     role: "Senior Software Developer",
     period: "2021 — 2023",
@@ -113,6 +114,16 @@ const EXPERIENCE: Experience[] = [
     description:
       "Part of the core API team, designing and scaling dozens of microservices powering a platform with 32M+ monthly active users. Drove significant improvements in code quality, reliability, and system performance across the backend.",
     tags: ["Go", "TypeScript", "k8s", "AWS", "PostgreSQL", "MongoDB"],
+  },
+  {
+    company: "Meetup",
+    domain: "meetup.com",        // ✏️ replace with actual domain
+    logoPath: "/logos/meetup-logo.jpeg",
+    url: "https://www.meetup.com",
+    role: "Senior Full Stack Developer",
+    period: "2017 — 2018",
+    description: "Engineered a new payment module with flexible pricing tiers that drove a 60% increase in revenue. Designed and built a library of reusable, highly configurable payment UI components adopted across the platform — easy to extend and maintain.",
+    tags: ["TypeScript", "React", "Node.js", "Stripe"],
   },
 ];
 
