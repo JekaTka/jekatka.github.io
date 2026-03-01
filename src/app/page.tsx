@@ -33,41 +33,41 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    title: "Project Alpha",
-    subtitle: "Web application",
+    title: "Secret Project",
+    subtitle: "Cooking some amazing iOS app",
     description:
-      "A thoughtfully crafted web application that solves a real problem. Built with care for performance and user experience.",
-    tags: ["Next.js", "TypeScript", "Tailwind"],
+      "A mobile app that helps people manage their daily workflow without distractions.",
+    tags: ["SwiftUI", "Swift", "iOS", "macOS"],
     url: "#",
     accent: "from-blue-400 to-blue-600",
   },
-  {
-    title: "Project Beta",
-    subtitle: "Open source library",
-    description:
-      "An open source library used by developers around the world. Focused on developer experience and reliability.",
-    tags: ["TypeScript", "npm", "API"],
-    url: "#",
-    accent: "from-violet-400 to-violet-600",
-  },
-  {
-    title: "Project Gamma",
-    subtitle: "Mobile app",
-    description:
-      "A minimal, privacy-first mobile app that helps people manage their daily workflow without distractions.",
-    tags: ["React Native", "Expo", "SQLite"],
-    url: "#",
-    accent: "from-emerald-400 to-emerald-600",
-  },
-  {
-    title: "Project Delta",
-    subtitle: "Developer tool",
-    description:
-      "A CLI tool that automates repetitive development tasks, saving hours of manual work per week.",
-    tags: ["Node.js", "CLI", "Automation"],
-    url: "#",
-    accent: "from-orange-400 to-orange-600",
-  },
+  // {
+  //   title: "Project Beta",
+  //   subtitle: "Open source library",
+  //   description:
+  //     "An open source library used by developers around the world. Focused on developer experience and reliability.",
+  //   tags: ["TypeScript", "npm", "API"],
+  //   url: "#",
+  //   accent: "from-violet-400 to-violet-600",
+  // },
+  // {
+  //   title: "Project Gamma",
+  //   subtitle: "Mobile app",
+  //   description:
+  //     "A minimal, privacy-first mobile app that helps people manage their daily workflow without distractions.",
+  //   tags: ["React Native", "Expo", "SQLite"],
+  //   url: "#",
+  //   accent: "from-emerald-400 to-emerald-600",
+  // },
+  // {
+  //   title: "Project Delta",
+  //   subtitle: "Developer tool",
+  //   description:
+  //     "A CLI tool that automates repetitive development tasks, saving hours of manual work per week.",
+  //   tags: ["Node.js", "CLI", "Automation"],
+  //   url: "#",
+  //   accent: "from-orange-400 to-orange-600",
+  // },
 ];
 
 interface Experience {
