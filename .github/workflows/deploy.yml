@@ -38,6 +38,9 @@ jobs:
       - name: Build static site
         run: npm run build
         # Outputs static files to /out
+        env:
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}
 
       - name: Add .nojekyll (prevents Jekyll processing)
         run: touch out/.nojekyll

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo, Space_Grotesk } from "next/font/google";
+import { Suspense } from "react";
+import { PHProvider } from "./providers";
+import { PostHogPageView } from "./posthog-pageview";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -41,7 +44,14 @@ export default function RootLayout({
       lang="en"
       className={`${archivo.variable} ${spaceGrotesk.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <PHProvider>
+        <body className="antialiased">
+          <Suspense fallback={null}>
+            <PostHogPageView />
+          </Suspense>
+          {children}
+        </body>
+      </PHProvider>
     </html>
   );
 }
