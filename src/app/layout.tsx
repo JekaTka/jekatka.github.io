@@ -20,13 +20,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name — Developer",
+  title: "Yevhenii Tkachenko — Staff Software Engineer",
   description:
-    "Personal website of Your Name — a developer who cares about craft, design, and building things that matter.",
+    "Personal website of Yevhenii Tkachenko — a staff software engineer who cares about craft, design, and building things that matter.",
   openGraph: {
-    title: "Your Name — Developer",
+    title: "Yevhenii Tkachenko — Staff Software Engineer",
     description:
-      "Personal website of Your Name — a developer who cares about craft, design, and building things that matter.",
+      "Personal website of Yevhenii Tkachenko — a staff software engineer who cares about craft, design, and building things that matter.",
     url: "https://jekatka.github.io",
     siteName: "jekatka.github.io",
     locale: "en_US",
